@@ -12,14 +12,40 @@
     <div
       class="container bg-white mx-auto max-w-screen-sm"
       x-data="{
-        forums: ['politics','crime','Romance','Celebrities','Religion','Fashion','Sports','Autos','Phones']
+        forums: ['politics','crime','Romance','Celebrities','Religion','Fashion','Sports','Autos','Phones'],
+        featured:[1,2,3,4,5,6,7,8,9,10]
       }"
     >
-      <header class="border-b-2 p-4">Nairaland</header>
+      <header class="border-b p-4 py-6">
+        <div class="flex pb-6 gap-8 justify-between">
+          <a href="#">
+            <img src="./logo.png" class="h-6 w-auto grayscale" />
+          </a>
+
+          <div class="flex text-xs gap-2 uppercase">
+            <a
+              href="#login"
+              class="rounded font-medium bg-gray-50 p-2 px-4 hover:bg-gray-200"
+              >Login</a
+            >
+            <a
+              href="#register"
+              class="rounded font-medium bg-gray-100 p-2 px-4 hover:bg-gray-200"
+              >Register</a
+            >
+          </div>
+        </div>
+
+        <input
+          type="search"
+          placeholder="Search keywords..."
+          class="bg-white border rounded text-sm w-full p-2 px-4 focus:outline-none"
+        />
+      </header>
 
       <nav class="p-4 py-6">
         <div class="flex pb-4 gap-8 justify-between">
-          <h1 class="font-medium text-sm uppercase">Trending forums:</h1>
+          <h1 class="font-medium text-sm uppercase">Explore forums:</h1>
 
           <a
             href="#"
@@ -37,9 +63,7 @@
               href="#"
               x-text="forum"
               class="rounded font-medium bg-gray-100 p-2 px-4 hover:bg-gray-200"
-            >
-              Politics
-            </a>
+            />
           </template>
         </section>
       </nav>
@@ -52,7 +76,34 @@
         </a>
       </nav>
 
-      <main>xxx</main>
+      <section class="divide-y divide-gray-100 grid py-6 grid-cols-1">
+        <div class="flex p-4 pt-0 gap-8 items-center justify-between">
+          <h1 class="font-semibold uppercase">Featured News & Discussions</h1>
+
+          <label class="rounded bg-gray-100 text-xs pr-2 inline-block">
+            <select class="bg-transparent p-2 px-4 focus:outline-0">
+              <option disabled value="">Filter</option>
+              <option value="">Newest</option>
+              <option value="">Popular</option>
+              <option value="">Trending</option>
+            </select>
+          </label>
+        </div>
+
+        <template x-for="link in featured">
+          <a href="#" class="p-4 block hover:bg-gray-50">
+            <h3 class="font-medium text-sm pb-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            </h3>
+
+            <section class="flex text-xs text-gray-400 gap-2">
+              <div x-text="new Date().toLocaleDateString()" class=""></div>
+              <div>&bullet;</div>
+              <div href="#" class="block">Crime</div>
+            </section>
+          </a>
+        </template>
+      </section>
 
       <nav class="">
         <a
