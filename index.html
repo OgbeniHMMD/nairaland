@@ -3,21 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
   </head>
 
   <body class="bg-gray-100">
-    <div class="container bg-white mx-auto max-w-screen-sm">
+    <div
+      class="container bg-white mx-auto max-w-screen-sm"
+      x-data="{
+        forums: ['politics','crime','Romance','Celebrities','Religion','Fashion','Sports','Autos','Phones']
+      }"
+    >
       <header class="border-b-2 p-4">Nairaland</header>
 
       <nav class="p-4 py-6">
-        <h1 class="text-cente-r pb-4 uppercase">Popular forums:</h1>
-        <section class="flex text-xs text-gray-900 gap-4 capitalize">
+        <div class="flex pb-4 gap-8 justify-between">
+          <h1 class="font-medium text-sm uppercase">Trending forums:</h1>
+
           <a
             href="#"
-            class="rounded font-medium bg-gray-100 p-2 px-4 hover:bg-gray-200"
-            >Politics</a
+            class="rounded font-medium text-xs text-gray-500 hover:underline"
           >
+            See more &raquo;
+          </a>
+        </div>
+
+        <section
+          class="flex text-xs text-gray-900 gap-2 overflow-x-auto capitalize"
+        >
+          <template x-for="forum in forums">
+            <a
+              href="#"
+              x-text="forum"
+              class="rounded font-medium bg-gray-100 p-2 px-4 hover:bg-gray-200"
+            >
+              Politics
+            </a>
+          </template>
         </section>
       </nav>
 
